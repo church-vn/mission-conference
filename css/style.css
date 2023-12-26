@@ -1613,7 +1613,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #intro .intro-container {
-    top: 30px;
+    top: 0px;
   }
 
   #intro h1 {
