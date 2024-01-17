@@ -1696,8 +1696,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   .support_btn {
     display: none !important;
   }
+  .hide_on_desktop {
+    display: none !important;
+  }
 }
 
 * {
   scroll-behavior: smooth;
+}
+
+.button_buy_ticket {
+  margin-top: 20px;
 }
