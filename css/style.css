@@ -899,6 +899,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #venue {
   padding: 0 0;
+  margin-bottom: 20px;
 }
 
 #venue .container-fluid {
@@ -1711,5 +1712,4 @@ body.mobile-nav-active #mobile-nav-toggle {
 iframe.main_map {
   border-radius: 20px !important;
   width: 100% !important;
-  margin: 0 auto !important;
 }
