@@ -1294,7 +1294,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #contact {
-  padding: 60px 0;
+  padding: 60px 0 0 0;
 }
 
 #contact .contact-info {
@@ -1707,4 +1707,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .button_buy_ticket {
   margin-top: 20px;
+}
+iframe.main_map {
+  border-radius: 20px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
 }
