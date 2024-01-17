@@ -1223,7 +1223,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #buy-tickets .card {
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: all  0.3s ease-in-out;
   box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
 }
@@ -1696,4 +1696,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   .support_btn {
     display: none !important;
   }
+}
+
+* {
+  scroll-behavior: smooth;
 }
