@@ -658,7 +658,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding: 60px 0 40px 0;
+  padding: 90px 0 70px 0;
 }
 
 #about:before {
@@ -1681,4 +1681,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   .h2_for_mobile {
     font-size: 23px !important;
   }
+}
+
+
+
+
+.heading_main {
+  color: #f82249 !important;
+}
+.support_qr {
+  width: 100% !important;
 }
