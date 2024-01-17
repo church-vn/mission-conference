@@ -1692,3 +1692,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 .support_qr {
   width: 100% !important;
 }
+@media screen and (min-width: 996px) {
+  .support_btn {
+    display: none !important;
+  }
+}
