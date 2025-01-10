@@ -470,7 +470,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 @media screen and (max-width: 768px) {
   #intro {
-    height: 720px !important;
+    height: 890px !important;
   }
 }
 #intro:before {
