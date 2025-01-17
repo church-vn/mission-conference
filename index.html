@@ -104,7 +104,7 @@
       <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a> -->
     <div class="">
-      <a href="https://forms.gle/PNS5cSMGGFqMmrTu8" target="_blank" class="about-btn scrollto">Регистрация на конференцию</a>
+      <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Регистрация на конференцию</a>
       <a href="#about" class="about-btn scrollto">Узнать больше о конференции</a>
       <a href="https://forms.gle/KXu4Md766Gj9n9oq8" target="_blank" class="about-btn scrollto">Хочу послужить на конференции</a>
     </div>
@@ -662,6 +662,51 @@
   </main>
 
 
+<!-- форма регистрации popup -->
+<div class="popup__bg_mission_conference"> 
+    <form class="popup_mission_conference">
+        <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
+        <br>
+        <img src="img/close.svg" class="close-popup_mission_conference">
+        <label class="hidden_form_item">
+            <textarea id="messageInput_mission_conference" name="topic_message">Регистрация на квартирник</textarea>
+            <div class="label__text">
+            </div>
+        </label>
+        <label>
+            <input id="sendName_mission_conference" type="name" name="name">
+            <div class="label__text">
+                Ваше имя
+            </div>
+        </label>
+        <label>
+            <input id="sendName_mission_conference" type="seccond-name" name="second-name">
+            <div class="label__text">
+                Ваша фамилия
+            </div>
+        </label>
+        <label>
+            <input id="sendTel_mission_conference" type="tel" name="phone"  class="form-input">
+            <div class="label__text">
+                Ваш телефон
+            </div>
+        </label>
+        <!-- <label style="display: none !important;" class="">
+            <textarea id="messageInputpass_mission_conference" name="pass_message" placeholder="Укажите кем вы хотите быть на квартирнике: гостем или исполнителем">исполнитель</textarea>
+            <div class="label__text">
+                Гость или Исполнитель
+            </div>
+        </label> -->
+        <div class="privacy_policy">
+            Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+        </div>
+        <!-- <button class="close_through_submit_mission_conference"  id="sendButton_mission_conference" type="submit">Отправить</button> -->
+        <a href="" class="close_through_submit_mission_conference about-btn"  id="sendButton_mission_conference" type="submit">Отправить</a>
+    </form>
+</div>  
+
+
+
   <!--==========================
     Footer
   ============================-->
@@ -745,6 +790,27 @@
   <script src="lib/wow/wow.min.js"></script>
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+  <!-- Маска для телефонного номера -->
+        <script src="js/jquery-371min.js"></script>
+    <script src="js/jquerymaskedinputmin.js"></script>
+    <script>
+      $("input[name='phone']").mask("+7(999) 999-9999");
+      
+      $(".bezvalue_wrap").html("<input class='bezvalue'  type='text' name='bezvalue' value='' />");  
+       $(".bezvalue").val("Dolly Duck");
+       $(".bezvalue").hide();
+       
+       
+       $('.datatitle').on('click',function(){
+      var mysuperdata = $(this).attr('data-title');
+      $('#titlezagalovor').html(mysuperdata);
+       
+      });
+      </script>
+
+
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>

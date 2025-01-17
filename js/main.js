@@ -145,3 +145,86 @@ jQuery(document).ready(function( $ ) {
 // custom code
 
 });
+
+
+
+
+
+
+
+// popup форма для отрпавки заявки
+
+// popup
+let popupBg_mission_conference = document.querySelector('.popup__bg_mission_conference');
+let popup_mission_conference = document.querySelector('.popup_mission_conference');
+let openPopupButtons_mission_conference = document.querySelectorAll('.open-popup_mission_conference'); 
+let closePopupButton_mission_conference = document.querySelector('.close-popup_mission_conference'); 
+let closePopupButtonSubmit_mission_conference = document.querySelector('.close_through_submit_mission_conference');
+
+openPopupButtons_mission_conference.forEach((button) => { // Перебираем все кнопки
+    button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
+        e.preventDefault(); // Предотвращаем дефолтное поведение браузера
+        popupBg_mission_conference.classList.add('active'); // Добавляем класс 'active' для фона
+        popup_mission_conference.classList.add('active'); // И для самого окна
+    })
+});
+
+closePopupButton_mission_conference.addEventListener('click',() => { // Вешаем обработчик на крестик
+    popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
+    popup_mission_conference.classList.remove('active'); // И с окна
+});
+
+document.addEventListener('click', (e) => { // Вешаем обработчик на весь документ
+    if(e.target === popupBg_mission_conference) { // Если цель клика - фот, то:
+        popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
+        popup_mission_conference.classList.remove('active'); // И с окна
+    }
+});
+
+closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // Вешаем обработчик на submit
+    popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
+    popup_mission_conference.classList.remove('active'); // И с окна
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// связка формы регистрации с google таблицами
+  document.querySelector("#sendButton_mission_conference").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const name = document.querySelector("input[name='name']").value;
+    const secondName = document.querySelector("input[name='second-name']").value;
+    const phone = document.querySelector("input[name='phone']").value;
+
+    const data = { name, secondName, phone };
+
+    fetch("https://script.google.com/macros/library/d/1TNlcatE-7nmCpfySK68MRYm0XaTbXjRdtinf6uzFuF_u_GgmPYAm6qaZ/1", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === "success") {
+          alert("Регистрация успешна!");
+        } else {
+          alert("Ошибка при отправке данных.");
+        }
+      })
+      .catch(error => {
+        console.error("Ошибка:", error);
+        alert("Ошибка при подключении к серверу.");
+      });
+  });
+
