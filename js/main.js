@@ -216,7 +216,7 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
     };
 
     // URL вашего опубликованного Web App
-    const url = 'https://script.google.com/macros/s/AKfycbzPrTLMc3rN2paY3mqWAzZTiTKlPZA-tnn6Ygrq9Jsk/dev';
+    const url = 'https://script.google.com/macros/s/AKfycbzz64MtCvg3I8HMW3PCLwqbwpqO5fBiMzHGh0LqWIaCGVys6mlZgdyP_lW6bJ8cO7XFLQ/exec';
 
     // Отправляем данные с помощью fetch
     fetch(url, {
