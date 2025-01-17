@@ -1,0 +1,69 @@
+
+<!-- форма регистрации popup -->
+
+    <form class="popup_mission_conference">
+        <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
+        <br>
+        <img src="img/close.svg" class="close-popup_mission_conference">
+        <label class="hidden_form_item">
+            <textarea id="messageInput_mission_conference" name="topic_message">Регистрация на квартирник</textarea>
+            <div class="label__text">
+            </div>
+        </label>
+        <label>
+            <input id="sendName_mission_conference" type="name" name="name">
+            <div class="label__text">
+                Ваше имя
+            </div>
+        </label>
+        <label>
+            <input id="sendName_mission_conference" type="seccond-name" name="second-name">
+            <div class="label__text">
+                Ваша фамилия
+            </div>
+        </label>
+        <label>
+            <input id="sendTel_mission_conference" type="tel" name="phone"  class="form-input">
+            <div class="label__text">
+                Ваш телефон
+            </div>
+        </label>
+     
+        <a href="" class="close_through_submit_mission_conference about-btn"  id="sendButton_mission_conference" type="submit">Отправить</a>
+    </form>
+
+
+<script type="text/javascript">
+    
+
+
+// связка формы регистрации с google таблицами
+  document.querySelector("#sendButton_mission_conference").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const name = document.querySelector("input[name='name']").value;
+    const secondName = document.querySelector("input[name='second-name']").value;
+    const phone = document.querySelector("input[name='phone']").value;
+
+    const data = { name, secondName, phone };
+
+    fetch("https://script.google.com/macros/library/d/1TNlcatE-7nmCpfySK68MRYm0XaTbXjRdtinf6uzFuF_u_GgmPYAm6qaZ/1", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === "success") {
+          alert("Регистрация успешна!");
+        } else {
+          alert("Ошибка при отправке данных.");
+        }
+      })
+      .catch(error => {
+        console.error("Ошибка:", error);
+        alert("Ошибка при подключении к серверу.");
+      });
+  });
+
+</script>

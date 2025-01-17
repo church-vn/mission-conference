@@ -209,7 +209,7 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
 
     const data = { name, secondName, phone };
 
-    fetch("https://script.google.com/macros/library/d/1TNlcatE-7nmCpfySK68MRYm0XaTbXjRdtinf6uzFuF_u_GgmPYAm6qaZ/1", {
+    fetch("https://script.google.com/macros/s/AKfycby5j97R2Bh1fvcQ7fkXsMHwHlvbk-ly58GLvsNSerra2d5xt_cUsJKLlQih87H2jhaz7w/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
