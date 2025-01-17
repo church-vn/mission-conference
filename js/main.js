@@ -200,31 +200,39 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
 
 
 // связка формы регистрации с google таблицами
-  document.querySelector("#sendButton_mission_conference").addEventListener("click", function (event) {
-    event.preventDefault();
+ document.querySelector('.popup_mission_conference').addEventListener('submit', function(event) {
+    event.preventDefault(); // предотвращаем стандартную отправку формы
 
-    const name = document.querySelector("input[name='name']").value;
-    const secondName = document.querySelector("input[name='second-name']").value;
-    const phone = document.querySelector("input[name='phone']").value;
+    // Собираем данные из формы
+    const name = document.getElementById('sendName_mission_conference').value;
+    const secondName = document.getElementById('sendSecondName_mission_conference').value;
+    const phone = document.getElementById('sendTel_mission_conference').value;
 
-    const data = { name, secondName, phone };
+    // Формируем данные для отправки
+    const data = {
+        name: name,
+        secondName: secondName,
+        phone: phone
+    };
 
-    fetch("https://script.google.com/macros/s/AKfycby5j97R2Bh1fvcQ7fkXsMHwHlvbk-ly58GLvsNSerra2d5xt_cUsJKLlQih87H2jhaz7w/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+    // URL вашего опубликованного Web App
+    const url = 'https://script.google.com/macros/s/AKfycbzz64MtCvg3I8HMW3PCLwqbwpqO5fBiMzHGh0LqWIaCGVys6mlZgdyP_lW6bJ8cO7XFLQ/exec';
+
+    // Отправляем данные с помощью fetch
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
-      .then(response => response.json())
-      .then(result => {
-        if (result.status === "success") {
-          alert("Регистрация успешна!");
-        } else {
-          alert("Ошибка при отправке данных.");
-        }
-      })
-      .catch(error => {
-        console.error("Ошибка:", error);
-        alert("Ошибка при подключении к серверу.");
-      });
-  });
-
+    .then(response => response.json())
+    .then(result => {
+        console.log('Успех:', result);
+        alert('Регистрация успешно отправлена!');
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке данных!');
+    });
+});

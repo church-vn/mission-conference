@@ -664,45 +664,26 @@
 
 <!-- форма регистрации popup -->
 <div class="popup__bg_mission_conference"> 
-    <form class="popup_mission_conference">
-        <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
-        <br>
-        <img src="img/close.svg" class="close-popup_mission_conference">
-        <label class="hidden_form_item">
-            <textarea id="messageInput_mission_conference" name="topic_message">Регистрация на квартирник</textarea>
-            <div class="label__text">
-            </div>
-        </label>
-        <label>
-            <input id="sendName_mission_conference" type="name" name="name">
-            <div class="label__text">
-                Ваше имя
-            </div>
-        </label>
-        <label>
-            <input id="sendName_mission_conference" type="seccond-name" name="second-name">
-            <div class="label__text">
-                Ваша фамилия
-            </div>
-        </label>
-        <label>
-            <input id="sendTel_mission_conference" type="tel" name="phone"  class="form-input">
-            <div class="label__text">
-                Ваш телефон
-            </div>
-        </label>
-        <!-- <label style="display: none !important;" class="">
-            <textarea id="messageInputpass_mission_conference" name="pass_message" placeholder="Укажите кем вы хотите быть на квартирнике: гостем или исполнителем">исполнитель</textarea>
-            <div class="label__text">
-                Гость или Исполнитель
-            </div>
-        </label> -->
-        <div class="privacy_policy">
-            Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
-        </div>
-        <!-- <button class="close_through_submit_mission_conference"  id="sendButton_mission_conference" type="submit">Отправить</button> -->
-        <a href="" class="close_through_submit_mission_conference about-btn"  id="sendButton_mission_conference" type="submit">Отправить</a>
-    </form>
+   <form class="popup_mission_conference">
+    <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
+    <br>
+    <img src="img/close.svg" class="close-popup_mission_conference">
+    <label>
+        <input id="sendName_mission_conference" type="name" name="name">
+        <div class="label__text">Ваше имя</div>
+    </label>
+    <label>
+        <input id="sendSecondName_mission_conference" type="text" name="second-name">
+        <div class="label__text">Ваша фамилия</div>
+    </label>
+    <label>
+        <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input">
+        <div class="label__text">Ваш телефон</div>
+    </label>
+
+    <button type="submit" id="sendButton_mission_conference" class="about-btn">Отправить</button>
+</form>
+
 </div>  
 
 
