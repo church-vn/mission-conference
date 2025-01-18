@@ -194,46 +194,47 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('.popup_mission_conference');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // предотвращаем стандартную отправку формы
 
+            // Собираем данные из формы
+            const name = document.getElementById('sendName_mission_conference').value;
+            const secondName = document.getElementById('sendSecondName_mission_conference').value;
+            const phone = document.getElementById('sendTel_mission_conference').value;
 
+            // Формируем данные для отправки
+            const data = {
+                name: name,
+                secondName: secondName,
+                phone: phone
+            };
 
+            // URL вашего опубликованного Web App
+            const url = 'https://script.google.com/macros/s/AKfycbzz64MtCvg3I8HMW3PCLwqbwpqO5fBiMzHGh0LqWIaCGVys6mlZgdyP_lW6bJ8cO7XFLQ/exec';
 
-document.querySelector('.popup_mission_conference').addEventListener('submit', function(event) {
-    event.preventDefault(); // предотвращаем стандартную отправку формы
-
-    // Собираем данные из формы
-    const name = document.getElementById('sendName_mission_conference').value;
-    const secondName = document.getElementById('sendSecondName_mission_conference').value;
-    const phone = document.getElementById('sendTel_mission_conference').value;
-
-    // Формируем данные для отправки
-    const data = {
-        name: name,
-        secondName: secondName,
-        phone: phone
-    };
-
-    // URL вашего опубликованного Web App
-    const url = 'https://script.google.com/macros/s/AKfycbzz64MtCvg3I8HMW3PCLwqbwpqO5fBiMzHGh0LqWIaCGVys6mlZgdyP_lW6bJ8cO7XFLQ/exec';
-
-    // Отправляем данные с помощью fetch
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.status === 'success') {
-            alert('Регистрация успешно отправлена!');
-        } else {
-            alert('Что-то пошло не так!');
-        }
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Произошла ошибка при отправке данных!');
-    });
+            // Отправляем данные с помощью fetch
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    alert('Регистрация успешно отправлена!');
+                } else {
+                    alert('Что-то пошло не так!');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при отправке данных!');
+            });
+        });
+    }
 });
