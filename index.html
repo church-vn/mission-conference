@@ -664,25 +664,28 @@
 
 <!-- форма регистрации popup -->
 <div class="popup__bg_mission_conference"> 
-   <form class="popup_mission_conference">
+  <form class="popup_mission_conference">
     <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
     <br>
     <img src="img/close.svg" class="close-popup_mission_conference">
     <label>
-        <input id="sendName_mission_conference" type="name" name="name">
+        <input id="sendName_mission_conference" type="name" name="name" required>
         <div class="label__text">Ваше имя</div>
     </label>
     <label>
-        <input id="sendSecondName_mission_conference" type="text" name="second-name">
+        <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
         <div class="label__text">Ваша фамилия</div>
     </label>
     <label>
-        <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input">
+        <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
         <div class="label__text">Ваш телефон</div>
     </label>
-
+    <div class="privacy_policy">
+            Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+        </div>
     <button type="submit" id="sendButton_mission_conference" class="about-btn">Отправить</button>
 </form>
+
 
 </div>  
 
