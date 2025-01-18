@@ -1,62 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Регистрация на конференцию</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация на конференцию</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        .response-message {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="popup__bg_mission_conference">
-    <form class="popup_mission_conference" id="registration-form">
-      <h4>Регистрация на конференцию 📋</h4>
 
-      <label>
-        <input id="sendName_mission_conference" type="text" name="name" placeholder="Ваше имя" required>
-      </label>
+    <div class="form-container">
+        <h2>Регистрация на конференцию</h2>
+        <form id="registration-form">
+            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            <input type="text" id="secondName" name="secondName" placeholder="Ваша фамилия" required>
+            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+            <button type="submit">Отправить</button>
+        </form>
 
-      <label>
-        <input id="sendSecondName_mission_conference" type="text" name="second-name" placeholder="Ваша фамилия" required>
-      </label>
+        <div id="response" class="response-message"></div>
+    </div>
 
-      <label>
-        <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" placeholder="Ваш телефон" required>
-      </label>
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-      <button type="submit">Отправить</button>
-    </form>
-  </div>
+            const name = document.getElementById('name').value;
+            const secondName = document.getElementById('secondName').value;
+            const phone = document.getElementById('phone').value;
 
-  <script>
-    // Маска для телефонного номера
-    
+            const data = {
+                name: name,
+                secondName: secondName,
+                phone: phone
+            };
 
-      // Формируем данные для отправки
-      const data = {
-        name: name,
-        secondName: secondName,
-        phone: phone
-      };
+            // URL веб-приложения Google Apps Script
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbzxKvgVPmR3-zXMKTPaK6h817P1y01-5iR_m1cwo2vI45ePkLKzPuAl2kZIlnow10LEgA/exec';
 
-      // URL вашего опубликованного Google Apps Script
-      const url = 'https://script.google.com/macros/s/AKfycbx6Ucro0N946m7_HsTgeVReKWCvPIw45lZCRhDUJBvF3-M44aedhuY9ShkEe0eJa-eG/exec';
+            fetch(scriptUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    document.getElementById('response').innerHTML = 'Регистрация прошла успешно!';
+                } else {
+                    document.getElementById('response').innerHTML = 'Ошибка при регистрации!';
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                document.getElementById('response').innerHTML = 'Произошла ошибка при отправке данных!';
+            });
+        });
+    </script>
 
-      // Отправка данных в Google Таблицы
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(result => {
-        alert('Регистрация успешно отправлена!');
-      })
-      .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Произошла ошибка при отправке данных!');
-      });
-  </script>
 </body>
 </html>
