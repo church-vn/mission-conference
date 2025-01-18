@@ -2057,3 +2057,23 @@ div.privacy_policy {
 #contact input:focus {
     border-radius: 0.5em !important;
 }
+
+
+
+
+
+/* Отключение подсказок в браузере на формах */
+/* Отключаем подсказки в Firefox */
+input:invalid:required {
+    box-shadow: none !important;
+}
+
+/* Отключаем подсказки в Chrome */
+input:invalid:required {
+    outline: none !important;
+}
+
+/* Дополнительные стили для всех полей */
+input:required {
+    background-color: transparent; /* Пример для улучшения визуального восприятия */
+}

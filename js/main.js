@@ -161,6 +161,15 @@ let openPopupButtons_mission_conference = document.querySelectorAll('.open-popup
 let closePopupButton_mission_conference = document.querySelector('.close-popup_mission_conference'); 
 let closePopupButtonSubmit_mission_conference = document.querySelector('.close_through_submit_mission_conference');
 
+// Проверка на заполненность полей
+function checkFormValidity() {
+    let sendName = document.getElementById('sendName_mission_conference').value.trim();
+    let sendSecondName = document.getElementById('sendSecondName_mission_conference').value.trim();
+    let sendTel = document.getElementById('sendTel_mission_conference').value.trim();
+    
+    return sendName && sendSecondName && sendTel; // Проверяем все поля
+}
+
 openPopupButtons_mission_conference.forEach((button) => { // Перебираем все кнопки
     button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
         e.preventDefault(); // Предотвращаем дефолтное поведение браузера
@@ -181,10 +190,15 @@ document.addEventListener('click', (e) => { // Вешаем обработчик
     }
 });
 
-closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // Вешаем обработчик на submit
-    popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
-    popup_mission_conference.classList.remove('active'); // И с окна
+// Обработчик кнопки отправки
+closePopupButtonSubmit_mission_conference.addEventListener('click', () => { 
+    if (checkFormValidity()) { // Если все поля заполнены
+        popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
+        popup_mission_conference.classList.remove('active'); // И с окна
+    }
+    // Если поля не заполнены, форма не закрывается и уведомление не показывается
 });
+
 
 
 
