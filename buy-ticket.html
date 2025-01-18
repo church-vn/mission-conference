@@ -121,7 +121,7 @@
       </div>
    <div class="registration_buttons_tickets">
       <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Регистрация на конференцию</a>
-      <a href="https://forms.gle/KXu4Md766Gj9n9oq8" target="_blank" class="about-btn scrollto">Хочу послужить на конференции</a>
+      <a href="" target="_blank" class="open-popup_service about-btn scrollto">Хочу послужить на конференции</a>
     </div>
 
 
@@ -185,6 +185,82 @@
     });
 });
 </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Вторая форма регистрации popup -->
+<div class="popup__bg_service">
+  <form action="#" class="popup_service" id="serviceForm" name="submit-to-google-sheet">
+    <h4 style="color: white;">Хочу послужить <br>на конференции 🧹🛠️🔧🔌</h4>
+    <br>
+    <img src="img/close.svg" class="close-popup_service">
+    <label>
+      <input id="sendName_service" type="text" name="name_service" required>
+      <div class="label__text">Ваше имя</div>
+    </label>
+    <label>
+      <input id="sendSecondName_service" type="text" name="second_name_service" required>
+      <div class="label__text">Ваша фамилия</div>
+    </label>
+    <label>
+      <input id="sendTel_service" type="tel" name="phone_service" class="form-input" required>
+      <div class="label__text">Ваш телефон</div>
+    </label>
+    <div class="privacy_policy">
+      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+    </div>
+    <button type="submit" id="sendButton_service" class="about-btn close_through_submit_service">Отправить</button>
+  </form>
+</div>
+
+<script>
+/// Для второй формы регистрации
+document.getElementById('serviceForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Отмена стандартного действия формы
+
+    // Собираем данные из формы
+    const formData = {
+        name: document.getElementById('sendName_service').value,
+        secondName: document.getElementById('sendSecondName_service').value,
+        
+        // Очищаем номер телефона от всех символов, кроме цифр
+        phone: document.getElementById('sendTel_service').value.replace(/\D/g, '') // Убираем все нецифровые символы
+    };
+
+    // Проверка на пустые поля (если одно из полей пустое, форма не отправляется)
+    if (!formData.name || !formData.secondName || !formData.phone) {
+        alert("Пожалуйста, заполните все поля!");
+        return; // Если поля пустые, не отправляем данные
+    }
+
+    // URL вашего Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbygNyGf9issJ00hJTe_3doJaAYtQnhtpNKVHxiitE7gAFyJVJ4gxngtMwTFytgY99sC/exec';
+
+    // Отправка данных
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Регистрация прошла успешно! ✅');
+        document.getElementById('serviceForm').reset(); // Очистка формы
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке формы.');
+    });
+});
+</script>
+
 
     <!--==========================
       Footer
@@ -273,11 +349,28 @@
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-  
+
     <!-- Маска для телефонного номера -->
     <script src="js/jquerymaskedinputmin.js"></script>
     <script>
       $("input[name='phone']").mask("+7(999) 999-9999");
+      
+      $(".bezvalue_wrap").html("<input class='bezvalue'  type='text' name='bezvalue' value='' />");  
+       $(".bezvalue").val("Dolly Duck");
+       $(".bezvalue").hide();
+       
+       
+       $('.datatitle').on('click',function(){
+      var mysuperdata = $(this).attr('data-title');
+      $('#titlezagalovor').html(mysuperdata);
+       
+      });
+      </script>
+
+      <!-- Маска для телефонного номера -->
+    <script src="js/jquerymaskedinputmin.js"></script>
+    <script>
+      $("input[name='phone_service']").mask("+7(999) 999-9999");
       
       $(".bezvalue_wrap").html("<input class='bezvalue'  type='text' name='bezvalue' value='' />");  
        $(".bezvalue").val("Dolly Duck");
