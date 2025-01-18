@@ -6,7 +6,7 @@
   <title>Миссия жизни | Ежегодная региональная конференция | 25 - 26 января 2025г с 11:00 до 17:00 </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="Регистрация на ежегодную региональную конференцию | Миссия жизни" name="keywords">
-  <meta content="Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих Ключевой стих  Ключевой стих" name="description">
+  <meta content="А я и дом мой будем служить Господу" name="description">
   <meta property="og:image" content="img/title_image_2.jpg" />
   <!-- Favicons -->
   <link href="img/logo.png" rel="icon">
@@ -66,6 +66,7 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="index.html">Главная</a></li>
           <li><a href="index.html#about">О конференции</a></li>
+          <li><a href="index.html#subscribe_1">Регистрация</a></li>
           <li><a href="index.html#speakers">Спикеры</a></li>
           <li><a href="index.html#schedule">Расписание</a></li>
           <li><a href="index.html#faq">Вопрос-ответ</a></li>
@@ -118,10 +119,72 @@
         </div>
 
       </div>
-
+   <div class="registration_buttons_tickets">
+      <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Регистрация на конференцию</a>
+      <a href="https://forms.gle/KXu4Md766Gj9n9oq8" target="_blank" class="about-btn scrollto">Хочу послужить на конференции</a>
+    </div>
 
 
     </section>
+
+<!-- Форма регистрации popup -->
+<div class="popup__bg_mission_conference">
+  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet">
+    <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
+    <br>
+    <img src="img/close.svg" class="close-popup_mission_conference">
+    <label>
+      <input id="sendName_mission_conference" type="text" name="name" required>
+      <div class="label__text">Ваше имя</div>
+    </label>
+    <label>
+      <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
+      <div class="label__text">Ваша фамилия</div>
+    </label>
+    <label>
+      <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
+      <div class="label__text">Ваш телефон</div>
+    </label>
+    <div class="privacy_policy">
+      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+    </div>
+    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
+  </form>
+</div>
+
+<script>
+ document.getElementById('registrationForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Отмена стандартного действия формы
+
+    // Собираем данные из формы
+    const formData = {
+        name: document.getElementById('sendName_mission_conference').value,
+        secondName: document.getElementById('sendSecondName_mission_conference').value,
+        
+        // Очищаем номер телефона от всех символов, кроме цифр
+        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, '') // Убираем все нецифровые символы
+    };
+
+    // URL вашего Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxBY9bdiF5cCsJ1HlNyLYTCvaj6HB2KKy3veQ4HEie4V7MumX6sXhLH4Ho_SICH4xnPTg/exec';
+
+    // Отправка данных
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Регистрация прошла успешно! ✅');
+        document.getElementById('registrationForm').reset(); // Очистка формы
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке формы.');
+    });
+});
+</script>
 
     <!--==========================
       Footer
@@ -196,6 +259,9 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
+
+
+
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -206,6 +272,24 @@
   <script src="lib/wow/wow.min.js"></script>
   <script src="lib/venobox/venobox.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  
+    <!-- Маска для телефонного номера -->
+    <script src="js/jquerymaskedinputmin.js"></script>
+    <script>
+      $("input[name='phone']").mask("+7(999) 999-9999");
+      
+      $(".bezvalue_wrap").html("<input class='bezvalue'  type='text' name='bezvalue' value='' />");  
+       $(".bezvalue").val("Dolly Duck");
+       $(".bezvalue").hide();
+       
+       
+       $('.datatitle').on('click',function(){
+      var mysuperdata = $(this).attr('data-title');
+      $('#titlezagalovor').html(mysuperdata);
+       
+      });
+      </script>
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>

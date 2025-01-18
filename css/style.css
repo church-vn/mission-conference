@@ -637,9 +637,86 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 2px solid #f82249;
   width: 100%;
   text-align: center;
+  background-color: transparent;
 }
 
 .popup__bg_mission_conference .about-btn:hover {
+  background: #f82249;
+  color: #fff;
+}
+
+
+
+.registration_buttons {
+  position: relative;
+  margin: 0 auto;
+}
+.registration_buttons_tickets {
+  position: relative;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .registration_buttons {
+    width: 30%;
+  }
+  .registration_buttons_tickets {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .registration_buttons {
+    width: 90%;
+  }
+  .registration_buttons_tickets {
+    width: 90%;
+  }
+}
+
+
+.registration_buttons .about-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  margin: 10px auto;
+}
+.registration_buttons .about-btn:hover {
+  background: #f82249;
+  color: #fff;
+}
+
+.registration_buttons_tickets .about-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  color: #f82249;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  margin: 10px auto;
+}
+.registration_buttons_tickets .about-btn:hover {
   background: #f82249;
   color: #fff;
 }
@@ -682,7 +759,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding: 120px 0 100px 0;
+  padding: 100px 0 80px 0;
 }
 
 #about:before {
@@ -1238,6 +1315,65 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 250px;
 }
 
+
+
+/*--------------------------------------------------------------
+# Subscribe Section first block 1 block
+--------------------------------------------------------------*/
+
+#subscribe_1 {
+  padding: 150px 60px;
+  background: url(../img/subscribe-bg.jpg) center center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+#subscribe_1:before {
+  content: "";
+  background: rgba(6, 12, 34, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#subscribe_1 .section-header h2,
+#subscribe_1 p {
+  color: #fff;
+}
+
+#subscribe_1 input {
+  background: #fff;
+  color: #060c22;
+  border: 0;
+  outline: none;
+  margin: 0;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+#subscribe_1 button {
+  border: 0;
+  padding: 9px 25px;
+  cursor: pointer;
+  background: #f82249;
+  color: #fff;
+  transition: all 0.3s ease;
+  outline: none;
+  font-size: 14px;
+  border-radius: 50px;
+  width: 200px;
+}
+
+#subscribe_1 button:hover {
+  background: none;
+  border: solid #f82249;
+  width: 250px;
+}
+
 /*--------------------------------------------------------------
 # Buy Tickets Section
 --------------------------------------------------------------*/
@@ -1576,6 +1712,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   #subscribe input {
     min-width: 400px;
   }
+  #subscribe_1 input {
+    min-width: 400px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1607,6 +1746,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #subscribe {
+    background-attachment: fixed;
+  }
+  #subscribe_1 {
     background-attachment: fixed;
   }
 }
@@ -1688,6 +1830,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 460px) {
   #subscribe button {
+    margin-top: 10px;
+  }
+  #subscribe_1 button {
     margin-top: 10px;
   }
 }

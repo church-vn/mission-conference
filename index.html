@@ -47,16 +47,6 @@
   <!-- /Yandex.Metrika counter -->
 
 
-<!-- onesignal push -->
-<!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(function(OneSignal) {
-    OneSignal.init({
-      appId: "a6632f33-cf6a-4ba2-b65d-32e6eec94576",
-    });
-  });
-</script> -->
 
 
 
@@ -64,34 +54,7 @@
 
 <body>
 
-  <!--==========================
-    Header
-  ============================-->
-  <!-- <header id="header">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-
-        <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#venue">Venue</a></li>
-          <li><a href="#hotels">Hotels</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#supporters">Sponsors</a></li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav>
-    </div>
-  </header> -->
-
+ 
   <!--==========================
     Intro Section
   ============================-->
@@ -101,8 +64,6 @@
       <h2 style="color: white;" class="mb-4 pb-0">Тема конференции: <br><span>«Я и мой дом»</span></h2>
       <p class="mb-4 pb-0">25–26 января 2025 г.<br>церковь "Слово Жизни" г. Великий Новгород</p>
       <p class="mb-4 pb-0">Вся информация о конференции находится ниже</p>
-      <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-        data-autoplay="true"></a> -->
     <div class="">
       <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Регистрация на конференцию</a>
       <a href="#about" class="about-btn scrollto">Узнать больше о конференции</a>
@@ -132,8 +93,8 @@
           </div>
           <div class="col-lg-4">
             <h3 class="heading_main">Ключевой стих конференции</h3>
-            <p>Потому что Бог во Христе примирил с Собою мир, не вменяя людям преступлений их, и дал нам слово примирения <br>
-          2-е Коринфянам 5:19</p>
+            <p>... а я и дом мой будем служить Господу <br>
+          Иисус Навин 24:15</p>
           </div>
           <div class="col-lg-2">
             <h3 class="heading_main">Дата и время конференции</h3>
@@ -146,8 +107,12 @@
           </div>
         </div>
       </div>
+      <div class="registration_buttons">
+      <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Регистрация на конференцию</a>
+      <a href="https://forms.gle/KXu4Md766Gj9n9oq8" target="_blank" class="about-btn scrollto">Хочу послужить на конференции</a>
+    </div>
     </section>
-
+   
 
 
 
@@ -259,6 +224,25 @@
           </div>
 
         </section>
+
+          <!--==========================
+          Registration Section
+        ============================-->
+        <section id="subscribe_1">
+          <div class="container wow fadeInUp">
+            <div style="margin-bottom: 30px;" class="section-header">
+              <h2 class="h2_for_mobile">Регистрация</h2>
+              <p>Еще не зарегистрировался?</p>
+            </div>
+          </div>
+          <div class="col-auto registration_button">
+            <button type="submit" class="open-popup_mission_conference">Регистрация</button><br>
+            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплата конференции</button>
+          </div>
+        </section>
+
+
+
 
         <!--==========================
           Schedule Section
@@ -582,7 +566,7 @@
             </div>
           </div>
           <div class="col-auto registration_button">
-            <button type="submit" onclick="location.href='https://forms.gle/PNS5cSMGGFqMmrTu8'">Регистрация</button><br>
+            <button type="submit" class="open-popup_mission_conference">Регистрация</button><br>
             <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплата конференции</button>
           </div>
         </section>
@@ -661,33 +645,65 @@
 
   </main>
 
-
-<!-- форма регистрации popup -->
-<div class="popup__bg_mission_conference"> 
-  <form action="#" class="popup_mission_conference" name="submit-to-google-sheet">
+<!-- Форма регистрации popup -->
+<div class="popup__bg_mission_conference">
+  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet">
     <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
     <br>
     <img src="img/close.svg" class="close-popup_mission_conference">
     <label>
-        <input id="sendName_mission_conference" type="name" name="name" required>
-        <div class="label__text">Ваше имя</div>
+      <input id="sendName_mission_conference" type="text" name="name" required>
+      <div class="label__text">Ваше имя</div>
     </label>
     <label>
-        <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
-        <div class="label__text">Ваша фамилия</div>
+      <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
+      <div class="label__text">Ваша фамилия</div>
     </label>
     <label>
-        <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
-        <div class="label__text">Ваш телефон</div>
+      <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
+      <div class="label__text">Ваш телефон</div>
     </label>
     <div class="privacy_policy">
-            Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
-        </div>
-    <button type="submit" id="sendButton_mission_conference" class="about-btn">Отправить</button>
-</form>
+      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+    </div>
+    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
+  </form>
+</div>
 
+<script>
+ document.getElementById('registrationForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Отмена стандартного действия формы
 
-</div>  
+    // Собираем данные из формы
+    const formData = {
+        name: document.getElementById('sendName_mission_conference').value,
+        secondName: document.getElementById('sendSecondName_mission_conference').value,
+        
+        // Очищаем номер телефона от всех символов, кроме цифр
+        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, '') // Убираем все нецифровые символы
+    };
+
+    // URL вашего Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxBY9bdiF5cCsJ1HlNyLYTCvaj6HB2KKy3veQ4HEie4V7MumX6sXhLH4Ho_SICH4xnPTg/exec';
+
+    // Отправка данных
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Регистрация прошла успешно! ✅');
+        document.getElementById('registrationForm').reset(); // Очистка формы
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке формы.');
+    });
+});
+</script>
+
 
 
 
@@ -766,18 +782,6 @@
 
 
 
-  <!--popup форма - google sheets -->
-  <script>
-  const scriptURL = '<https://script.google.com/macros/s/AKfycbynwQwZC1vdsK8OphxmtHsxpnHQwxiOj2fw7qFbW82Hfm-qryZdimh5pFvURa4y4NfW_A/exec>'
-  const form = document.forms['submit-to-google-sheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
 
 
 
