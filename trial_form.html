@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Регистрация на конференцию</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 </head>
 <body>
   <div class="popup__bg_mission_conference">
@@ -30,15 +29,7 @@
 
   <script>
     // Маска для телефонного номера
-    $("input[name='phone']").mask("+7(999) 999-9999");
-
-    // Отправка данных формы
-    $('#registration-form').submit(function(event) {
-      event.preventDefault(); // Останавливаем стандартное поведение формы
-
-      const name = $('#sendName_mission_conference').val();
-      const secondName = $('#sendSecondName_mission_conference').val();
-      const phone = $('#sendTel_mission_conference').val();
+    
 
       // Формируем данные для отправки
       const data = {
@@ -66,7 +57,6 @@
         console.error('Ошибка:', error);
         alert('Произошла ошибка при отправке данных!');
       });
-    });
   </script>
 </body>
 </html>
