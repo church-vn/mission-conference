@@ -204,6 +204,61 @@ closePopupButtonSubmit_mission_conference.addEventListener('click', () => {
 
 
 
+// popup для второй формы на service
+let popupBg_service = document.querySelector('.popup__bg_service');
+let popup_service = document.querySelector('.popup_service');
+let openPopupButtons_service = document.querySelectorAll('.open-popup_service');
+let closePopupButton_service = document.querySelector('.close-popup_service');
+let closePopupButtonSubmit_service = document.querySelector('.close_through_submit_service');
+
+// Проверка на заполненность полей
+function checkFormValidity_service() {
+    let sendName = document.getElementById('sendName_service').value.trim();
+    let sendSecondName = document.getElementById('sendSecondName_service').value.trim();
+    let sendTel = document.getElementById('sendTel_service').value.trim();
+    
+    // Проверяем все поля: если они не пустые, возвращаем true
+    return sendName && sendSecondName && sendTel;
+}
+
+// Открытие попапа при клике на кнопку
+openPopupButtons_service.forEach((button) => { // Перебираем все кнопки
+    button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
+        e.preventDefault(); // Предотвращаем дефолтное поведение браузера
+        popupBg_service.classList.add('active'); // Добавляем класс 'active' для фона
+        popup_service.classList.add('active'); // И для самого окна
+    });
+});
+
+// Закрытие попапа при клике на крестик
+closePopupButton_service.addEventListener('click', () => { 
+    popupBg_service.classList.remove('active'); // Убираем активный класс с фона
+    popup_service.classList.remove('active'); // И с окна
+});
+
+// Закрытие попапа при клике за пределами попапа
+document.addEventListener('click', (e) => { 
+    if (e.target === popupBg_service) { // Если цель клика - это фон попапа
+        popupBg_service.classList.remove('active'); // Убираем активный класс с фона
+        popup_service.classList.remove('active'); // И с окна
+    }
+});
+
+// Обработчик кнопки отправки
+closePopupButtonSubmit_service.addEventListener('click', () => { 
+    // Проверяем, заполнены ли все поля
+    if (checkFormValidity_service()) { // Если все поля заполнены
+        popupBg_service.classList.remove('active'); // Убираем активный класс с фона
+        popup_service.classList.remove('active'); // И с окна
+    }
+    // Если поля не заполнены, форма не закрывается и уведомление не показывается
+});
+
+
+
+
+
+
 
 
 

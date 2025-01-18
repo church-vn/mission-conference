@@ -630,7 +630,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
   transition: 0.5s;
   line-height: 1;
-  margin: 10px;
+  margin: 10px 0;
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
@@ -644,6 +644,34 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #f82249;
   color: #fff;
 }
+
+
+/* для второй формы на service */
+.popup__bg_service .about-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px 0;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+}
+
+.popup__bg_service .about-btn:hover {
+  background: #f82249;
+  color: #fff;
+}
+/* end для второй формы на service */
 
 
 
@@ -2062,18 +2090,150 @@ div.privacy_policy {
 
 
 
-/* Отключение подсказок в браузере на формах */
-/* Отключаем подсказки в Firefox */
-input:invalid:required {
-    box-shadow: none !important;
+
+
+/* ==================== */
+/* popup_service */
+/* ==================== */
+.popup__bg_service {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(38, 31, 31, 0.714);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.5s all;
+    z-index: 99999;
+    backdrop-filter: blur(4px) !important;
 }
 
-/* Отключаем подсказки в Chrome */
-input:invalid:required {
-    outline: none !important;
+.popup__bg_service.active { 
+    opacity: 1; 
+    pointer-events: all;
+    transition: 0.5s all;
 }
 
-/* Дополнительные стили для всех полей */
-input:required {
-    background-color: transparent; /* Пример для улучшения визуального восприятия */
+.popup_service {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); 
+    background: #000000c1;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
 }
+
+.popup_service.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+}
+
+@media screen and (max-width: 470px) {
+    .popup_service.active {
+        width: 90% !important;
+    }
+}
+
+/* Для стилизации крестика закрытия */
+.close-popup_service {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Стилизация меток и полей формы */
+.popup_service label {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.popup_service .label__text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #cfd0d3;
+    margin-bottom: 5px;
+}
+
+/* Стиль для input */
+.popup_service input {
+    height: 45px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #cfd0d3 !important;
+    border-radius: 0.5em;
+    padding: 18px;
+    background: transparent !important;
+    transition: 0.5s all;
+    color: white !important;
+}
+
+.popup_service input:focus {
+    border: 1px solid #f82249 !important;
+    box-shadow: 0 0 10px #f82249;
+    background: transparent !important;
+    transition: 0.5s all;
+}
+
+.popup_service input:focus + .label__text {
+    color: #f82249;
+}
+
+/* Стиль для textarea */
+.popup_service textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    outline: none;
+    border: 1px solid #cfd0d3;
+    border-radius: 0.5em;
+    font-size: 18px;
+    padding: 10px;
+    background: transparent !important;
+    color: white !important;
+}
+
+.popup_service textarea:focus {
+    border-bottom: 1px solid #f82249;
+    border: 1px solid #f82249 !important;
+    box-shadow: 0 0 10px #f82249;
+    background: transparent !important;
+    transition: 0.5s all;
+}
+
+.popup_service textarea:focus + .label__text {
+    color: #f82249;
+}
+
+/* Кнопка отправки */
+.popup_service button {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    background: #f82249;
+    cursor: pointer;
+    transition: 0.5s all;
+    line-height: 1.75em;
+    font-weight: 300;
+    font-family: 'Source Sans Pro';
+    border-radius: 5px; /* Добавлено закругление */
+}
+
+.popup_service button:hover {
+    background: #f74f5e;
+    color: #fff;
+    transition: 0.5s all;
+}
+
+/* ==================== */
+/* END popup_service */
+/* ==================== */
