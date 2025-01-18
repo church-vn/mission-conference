@@ -198,9 +198,7 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
 
 
 
-
-// связка формы регистрации с google таблицами
- document.querySelector('.popup_mission_conference').addEventListener('submit', function(event) {
+document.querySelector('.popup_mission_conference').addEventListener('submit', function(event) {
     event.preventDefault(); // предотвращаем стандартную отправку формы
 
     // Собираем данные из формы
@@ -228,8 +226,11 @@ closePopupButtonSubmit_mission_conference.addEventListener('click',() => { // В
     })
     .then(response => response.json())
     .then(result => {
-        console.log('Успех:', result);
-        alert('Регистрация успешно отправлена!');
+        if (result.status === 'success') {
+            alert('Регистрация успешно отправлена!');
+        } else {
+            alert('Что-то пошло не так!');
+        }
     })
     .catch(error => {
         console.error('Ошибка:', error);
